@@ -4,9 +4,8 @@ import { useEffect } from 'react'
 
 export default function FloatingButtons() {
   useEffect(() => {
-    // Load Crisp chat widget
     window.$crisp = []
-    window.CRISP_WEBSITE_ID = 'REPLACE_WITH_YOUR_CRISP_ID'
+    window.CRISP_WEBSITE_ID = 'd7bbeac1-0cc5-4591-92d2-ee853e43afc4'
     const d = document
     const s = d.createElement('script')
     s.src = 'https://client.crisp.chat/l.js'
@@ -24,7 +23,6 @@ export default function FloatingButtons() {
       gap: '12px',
       zIndex: 9999,
     }}>
-      {/* WhatsApp */}
       <a
         href="https://wa.me/15551234567?text=Hi%2C%20I%20need%20help%20with%20my%20online%20class"
         target="_blank"
@@ -43,7 +41,6 @@ export default function FloatingButtons() {
         WhatsApp Us
       </a>
 
-      {/* Live Chat (opens Crisp widget) */}
       <button
         onClick={() => { if (window.$crisp) window.$crisp.push(['do', 'chat:open']) }}
         style={{
