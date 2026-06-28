@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 56" fill="none">
+  <!-- Shield icon -->
+  <path d="M14 6 L28 2 L42 6 L42 26 Q42 38 28 44 Q14 38 14 26 Z" fill="#C9A84C"/>
+  <path d="M18 10 L28 7 L38 10 L38 26 Q38 35 28 40 Q18 35 18 26 Z" fill="#0D2545"/>
+  <!-- Checkmark in shield -->
+  <path d="M21 24 L26 29 L35 18" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Grade A text in shield -->
+  <!-- Brand name -->
+  <text x="50" y="22" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="20" fill="#0D2545" letter-spacing="-0.5">Grade</text>
+  <text x="50" y="44" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="20" fill="#C9A84C" letter-spacing="-0.5">Guaranteed</text>
+  <!-- Dot -->
+  <text x="195" y="44" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="20" fill="#C9A84C">.</text>
+  <text x="201" y="44" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="20" fill="#0D2545">com</text>
+</svg>
