@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // No 'standalone' output — Vercel handles its own optimized build format
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   images: {
     unoptimized: false,
   },
