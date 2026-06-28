@@ -1,59 +1,32 @@
 export default function sitemap() {
-  const base = 'https://gradeguaranteed.com'
+  const baseUrl = 'https://gradeguaranteed.com'
   const now = new Date().toISOString()
 
-  const corePages = [
-    { url: base, priority: 1.0, changeFrequency: 'weekly' },
-    { url: `${base}/grade-guarantee`, priority: 0.9, changeFrequency: 'monthly' },
-    { url: `${base}/pricing`, priority: 0.9, changeFrequency: 'monthly' },
-    { url: `${base}/how-it-works`, priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${base}/reviews`, priority: 0.8, changeFrequency: 'weekly' },
-    { url: `${base}/faq`, priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${base}/get-a-quote`, priority: 0.9, changeFrequency: 'monthly' },
-    { url: `${base}/blog`, priority: 0.7, changeFrequency: 'weekly' },
-  ]
-
-  const subjectPages = [
-    'math', 'nursing', 'accounting', 'statistics', 'english',
-    'biology', 'psychology', 'business', 'chemistry', 'history',
-    'economics', 'finance', 'computer-science', 'sociology',
-    'criminal-justice', 'marketing', 'political-science', 'philosophy',
-    'anatomy-physiology', 'information-technology',
-  ].map((slug) => ({
-    url: `${base}/take-my-${slug}-class`,
-    priority: 0.85,
-    changeFrequency: 'monthly',
-  }))
-
-  const emergencyPages = [
-    'im-failing-my-online-class',
-    'take-my-online-exam',
-    'take-my-proctored-exam',
-  ].map((slug) => ({
-    url: `${base}/${slug}`,
-    priority: 0.8,
-    changeFrequency: 'monthly',
+  const staticPages = [
+    '', '/grade-guarantee', '/pricing', '/how-it-works', '/reviews',
+    '/faq', '/get-a-quote', '/blog',
+    '/take-my-math-class', '/take-my-nursing-class', '/take-my-accounting-class',
+    '/take-my-statistics-class', '/take-my-biology-class', '/take-my-chemistry-class',
+    '/take-my-psychology-class', '/take-my-english-class', '/take-my-history-class',
+    '/take-my-business-class',
+    '/take-my-online-exam', '/take-my-proctored-exam', '/im-failing-my-online-class',
+  ].map(path => ({
+    url: baseUrl + path,
+    lastModified: now,
+    changeFrequency: path === '' ? 'weekly' : 'monthly',
+    priority: path === '' ? 1.0 : path.includes('get-a-quote') ? 0.9 : 0.7,
   }))
 
   const blogPosts = [
-    'how-to-pass-online-class-when-behind',
-    'take-my-online-class-safe',
-    'online-class-help-services-compared',
-    'wgu-online-class-help',
-    'snhu-online-class-tips',
     'nursing-class-too-hard',
-  ].map((slug) => ({
-    url: `${base}/blog/${slug}`,
-    priority: 0.6,
-    changeFrequency: 'monthly',
-  }))
-
-  const allPages = [...corePages, ...subjectPages, ...emergencyPages, ...blogPosts]
-
-  return allPages.map(({ url, priority, changeFrequency }) => ({
-    url,
+    'snhu-online-class-tips',
+    'wgu-online-class-help',
+  ].map(slug => ({
+    url: baseUrl + '/blog/' + slug,
     lastModified: now,
-    changeFrequency,
-    priority,
+    changeFrequency: 'monthly',
+    priority: 0.6,
   }))
+
+  return [...staticPages, ...blogPosts]
 }

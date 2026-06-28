@@ -4,108 +4,153 @@ import CTASection from '@/components/CTASection'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Pricing — Online Class Help Starting at $49/Week',
-  description: 'Transparent pricing for taking your online class. Starting at $49/week. Full class management, single assignments, exams. A or B guaranteed. No hidden fees.',
-  alternates: { canonical: 'https://gradeguaranteed.com/pricing' },
+  title: 'Pricing — Online Class Help From $37/Week | GradeGuaranteed.com',
+  description: 'Transparent pricing for online class help. Up to 8 weeks: $49/week. 12 weeks: $40/week. 16 weeks: $37/week. Single tasks from $30. A or B guaranteed or full refund.',
 }
 
-const priceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'PriceSpecification',
-  price: '49',
-  priceCurrency: 'USD',
-  unitText: 'WEEK',
-  description: 'Online class management — A or B grade guaranteed',
-}
-
-const plans = [
+const tiers = [
   {
-    name: 'Single Task',
-    price: '$50–$150',
-    per: 'per task',
-    desc: 'One assignment, quiz, or discussion post handled by a PhD expert.',
-    features: ['One assignment, quiz, or discussion', 'Delivered within 24–48 hours', 'Subject-matched expert', 'Unlimited revisions', 'Quality satisfaction guarantee'],
+    label: 'Single Task',
+    sublabel: 'One assignment, quiz, or discussion',
+    price: 'From $30',
+    unit: 'per task',
+    highlight: false,
+    features: [
+      'One assignment, essay, quiz, or discussion post',
+      'Delivered within agreed deadline',
+      'Unlimited revisions until graded',
+      'Best for quick one-off help',
+    ],
     cta: 'Get a Quote',
-    popular: false,
-    color: 'gray',
+    note: 'Price varies by complexity and subject',
   },
   {
-    name: 'Weekly Class Management',
+    label: 'Short Class',
+    sublabel: 'Up to 8 weeks',
     price: '$49',
-    per: 'per week',
-    desc: 'Our expert fully manages your class week-by-week. Grade guaranteed.',
-    features: ['Full class management — all tasks', 'A or B grade guaranteed', 'PhD-level subject expert assigned', 'Weekly progress updates', 'WhatsApp & email support', '100% refund if grade missed'],
-    cta: 'Get My Grade Guaranteed',
-    popular: true,
-    color: 'navy',
+    unit: 'per week',
+    highlight: false,
+    features: [
+      'All assignments, quizzes & discussions',
+      'All exams and midterms',
+      'Dedicated PhD-level expert',
+      'A or B guaranteed or full refund',
+      'Total: up to $392 for 8-week class',
+    ],
+    cta: 'Get a Quote',
+    note: 'Most popular for 4–8 week courses',
   },
   {
-    name: 'Full Semester',
-    price: '$800–$1,400',
-    per: 'full semester',
-    desc: 'Complete 16-week semester management — one upfront price.',
-    features: ['Everything in Weekly plan', '16-week full semester coverage', 'Priority expert assignment', 'Dedicated account manager', 'All exams & assignments included', 'A or B grade guaranteed'],
-    cta: 'Get Semester Quote',
-    popular: false,
-    color: 'gray',
+    label: 'Standard Class',
+    sublabel: '9–12 weeks',
+    price: '$40',
+    unit: 'per week',
+    highlight: true,
+    features: [
+      'All assignments, quizzes & discussions',
+      'All exams and midterms',
+      'Dedicated PhD-level expert',
+      'A or B guaranteed or full refund',
+      'Total: $360–$480 for 9–12 week class',
+    ],
+    cta: 'Get a Quote',
+    note: 'Best value for full-semester classes',
+  },
+  {
+    label: 'Full Semester',
+    sublabel: '13–16 weeks',
+    price: '$37',
+    unit: 'per week',
+    highlight: false,
+    features: [
+      'All assignments, quizzes & discussions',
+      'All exams and midterms',
+      'Dedicated PhD-level expert',
+      'A or B guaranteed or full refund',
+      'Total: $481–$592 for 13–16 week class',
+    ],
+    cta: 'Get a Quote',
+    note: 'Lowest per-week rate for long classes',
   },
 ]
 
-const factors = [
-  { icon: '📚', label: 'Subject Complexity', desc: 'STEM subjects (Nursing, Math, Chemistry) require more advanced expertise and are priced slightly higher than humanities.' },
-  { icon: '⏱️', label: 'Class Duration', desc: 'A 4-week mini-term costs less total than a 16-week semester, but the weekly rate remains the same.' },
-  { icon: '🎓', label: 'Academic Level', desc: 'Undergraduate vs graduate/doctoral level classes affect pricing. Graduate classes require higher-level expertise.' },
-  { icon: '🚨', label: 'Urgency', desc: 'Standard lead time is 24 hours. If you need us to start the same day, a rush fee of 15–20% may apply.' },
+const addOns = [
+  { name: 'Proctored Exam Support', price: 'From $100', desc: 'For exams requiring ProctorU, Honorlock, or Respondus' },
+  { name: 'Urgent Start (24h)', price: '+$50 one-time', desc: 'Expert assigned and working within 24 hours' },
+  { name: 'Per Single Exam', price: 'From $75', desc: 'One proctored or unproctored exam only' },
+  { name: 'Discussion Posts Only', price: 'From $15/post', desc: 'Weekly discussion posts and peer responses' },
+]
+
+const subjects = [
+  { name: 'Nursing & Healthcare', modifier: '+$10–20/wk' },
+  { name: 'Engineering / Coding', modifier: '+$10–20/wk' },
+  { name: 'General Humanities', modifier: 'Standard rate' },
+  { name: 'Business / Accounting', modifier: 'Standard rate' },
+  { name: 'Math / Statistics', modifier: '+$5–15/wk' },
+  { name: 'Science (Biology, Chem)', modifier: '+$10–20/wk' },
 ]
 
 export default function PricingPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(priceSchema) }} />
       <Header />
       <main>
-        {/* Hero */}
-        <section className="bg-hero-gradient py-16 px-4 text-center">
-          <div className="max-w-3xl mx-auto">
-            <span className="text-gold-400 font-bold text-sm uppercase tracking-wider">Transparent Pricing</span>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white mt-3 mb-5 leading-tight">
-              We're the Only Service<br />
-              <span className="text-gold-500">That Publishes Its Prices</span>
-            </h1>
-            <p className="text-blue-200 text-lg leading-relaxed">
-              Every competitor makes you fill out a form before revealing what they charge. We believe you deserve to know upfront. Starting at <strong className="text-gold-400">$49/week</strong>. No hidden fees. No bait-and-switch.
-            </p>
+        <section style={{ background: 'linear-gradient(135deg, #1a3a5c 0%, #0d2340 100%)', color: 'white', padding: '80px 24px 60px', textAlign: 'center' }}>
+          <p style={{ color: '#c9a84c', fontWeight: 700, letterSpacing: '2px', fontSize: '13px', textTransform: 'uppercase', marginBottom: '16px' }}>Transparent Pricing</p>
+          <h1 style={{ fontSize: 'clamp(32px, 5vw, 52px)', fontWeight: 800, marginBottom: '20px', lineHeight: 1.2 }}>
+            Simple, Honest Pricing.<br />A or B Guaranteed.
+          </h1>
+          <p style={{ fontSize: '18px', opacity: 0.9, maxWidth: '580px', margin: '0 auto 32px', lineHeight: 1.7 }}>
+            Pay by the week based on how long your class is. No hidden fees. No upfront payment. Grade guaranteed or 100% refund.
+          </p>
+          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            {['No upfront payment', 'A or B or full refund', 'All subjects covered'].map(t => (
+              <div key={t} style={{ background: 'rgba(255,255,255,0.1)', padding: '10px 20px', borderRadius: '8px', fontSize: '14px' }}>✓ {t}</div>
+            ))}
           </div>
         </section>
 
-        {/* Plans */}
-        <section className="py-20 bg-white px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-6 items-start">
-              {plans.map((plan) => (
-                <div key={plan.name} className={`rounded-2xl p-8 border-2 relative ${plan.popular ? 'bg-navy-900 border-gold-500 shadow-2xl scale-105' : 'bg-white border-gray-200 shadow-md'}`}>
-                  {plan.popular && (
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold-500 text-navy-900 text-xs font-bold px-5 py-2 rounded-full whitespace-nowrap">
-                      Most Popular — Grade Guaranteed
+        <section style={{ padding: '80px 24px', background: '#f8f9fa' }}>
+          <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+            <h2 style={{ textAlign: 'center', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 800, color: '#1a3a5c', marginBottom: '12px' }}>Choose Your Plan</h2>
+            <p style={{ textAlign: 'center', color: '#666', marginBottom: '48px', fontSize: '16px' }}>The longer your class, the lower your weekly rate.</p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px' }}>
+              {tiers.map((tier) => (
+                <div key={tier.label} style={{
+                  background: tier.highlight ? '#1a3a5c' : 'white',
+                  color: tier.highlight ? 'white' : '#333',
+                  borderRadius: '16px',
+                  padding: '32px 28px',
+                  border: tier.highlight ? 'none' : '2px solid #e8e8e8',
+                  position: 'relative',
+                  boxShadow: tier.highlight ? '0 8px 40px rgba(26,58,92,0.3)' : '0 2px 12px rgba(0,0,0,0.06)',
+                  transform: tier.highlight ? 'scale(1.03)' : 'none',
+                }}>
+                  {tier.highlight && (
+                    <div style={{ position: 'absolute', top: '-14px', left: '50%', transform: 'translateX(-50%)', background: '#c9a84c', color: 'white', padding: '4px 16px', borderRadius: '20px', fontSize: '12px', fontWeight: 700, whiteSpace: 'nowrap' }}>
+                      MOST POPULAR
                     </div>
                   )}
-                  <h2 className={`font-bold text-lg mb-1 ${plan.popular ? 'text-gold-400' : 'text-navy-900'}`}>{plan.name}</h2>
-                  <div className={`text-5xl font-extrabold mb-1 ${plan.popular ? 'text-white' : 'text-navy-900'}`}>{plan.price}</div>
-                  <div className={`text-sm mb-4 ${plan.popular ? 'text-blue-300' : 'text-gray-400'}`}>{plan.per}</div>
-                  <p className={`text-sm mb-6 leading-relaxed ${plan.popular ? 'text-blue-200' : 'text-gray-500'}`}>{plan.desc}</p>
-                  <ul className="space-y-3 mb-8">
-                    {plan.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2.5">
-                        <svg className={`w-5 h-5 flex-shrink-0 mt-0.5 ${plan.popular ? 'text-gold-500' : 'text-green-500'}`} fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                        <span className={`text-sm ${plan.popular ? 'text-blue-100' : 'text-gray-600'}`}>{f}</span>
+                  <p style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', opacity: 0.7, marginBottom: '8px' }}>{tier.label}</p>
+                  <p style={{ fontSize: '13px', opacity: 0.6, marginBottom: '20px' }}>{tier.sublabel}</p>
+                  <div style={{ marginBottom: '24px' }}>
+                    <span style={{ fontSize: '48px', fontWeight: 900, color: tier.highlight ? '#c9a84c' : '#1a3a5c' }}>{tier.price}</span>
+                    <span style={{ fontSize: '14px', opacity: 0.7, marginLeft: '4px' }}>{tier.unit}</span>
+                  </div>
+                  <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 28px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    {tier.features.map((f) => (
+                      <li key={f} style={{ fontSize: '14px', display: 'flex', gap: '8px', alignItems: 'flex-start', opacity: 0.9 }}>
+                        <span style={{ color: '#c9a84c', fontWeight: 700, marginTop: '1px' }}>✓</span>
+                        {f}
                       </li>
                     ))}
                   </ul>
-                  <Link href="/get-a-quote"
-                    className={`block text-center font-bold py-3.5 rounded-xl transition-all text-sm ${plan.popular ? 'bg-gold-500 text-navy-900 hover:bg-gold-400' : 'bg-navy-900 text-white hover:bg-navy-800'}`}>
-                    {plan.cta} →
+                  <p style={{ fontSize: '12px', opacity: 0.5, marginBottom: '20px', fontStyle: 'italic' }}>{tier.note}</p>
+                  <Link href="/get-a-quote" style={{
+                    display: 'block', textAlign: 'center', padding: '14px 20px', borderRadius: '8px', fontWeight: 700, fontSize: '15px', textDecoration: 'none',
+                    background: tier.highlight ? '#c9a84c' : '#1a3a5c', color: 'white',
+                  }}>
+                    {tier.cta} →
                   </Link>
                 </div>
               ))}
@@ -113,113 +158,68 @@ export default function PricingPage() {
           </div>
         </section>
 
-        {/* Subject pricing table */}
-        <section className="py-20 bg-navy-50 px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="section-heading">Typical Price by Subject</h2>
-              <p className="section-subheading">Weekly rates for full class management. Final pricing confirmed in your free quote.</p>
+        <section style={{ padding: '40px 24px', background: 'white', borderTop: '1px solid #eee', borderBottom: '1px solid #eee' }}>
+          <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+            <p style={{ color: '#666', fontSize: '15px', marginBottom: '16px' }}>We accept all major payment methods</p>
+            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
+              {['💳 Visa & Mastercard', '🍎 Apple Pay', '🅿️ PayPal', '💳 American Express'].map(m => (
+                <span key={m} style={{ background: '#f5f5f5', padding: '8px 16px', borderRadius: '8px', fontSize: '14px', fontWeight: 600, color: '#333' }}>{m}</span>
+              ))}
             </div>
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
-              <table className="w-full">
-                <thead className="bg-navy-900 text-white">
-                  <tr>
-                    <th className="text-left px-6 py-4 font-bold text-sm">Subject</th>
-                    <th className="text-center px-6 py-4 font-bold text-sm">Weekly Rate</th>
-                    <th className="text-center px-6 py-4 font-bold text-sm">8-Week Total</th>
-                    <th className="text-center px-6 py-4 font-bold text-sm">16-Week Total</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100">
-                  {[
-                    ['Math / Statistics', '$49–$59', '$392–$472', '$784–$944'],
-                    ['Nursing / Healthcare', '$59–$79', '$472–$632', '$944–$1,264'],
-                    ['Accounting / Finance', '$49–$65', '$392–$520', '$784–$1,040'],
-                    ['Business / Management', '$49–$59', '$392–$472', '$784–$944'],
-                    ['English / Humanities', '$49–$55', '$392–$440', '$784–$880'],
-                    ['Biology / Chemistry', '$59–$75', '$472–$600', '$944–$1,200'],
-                    ['Psychology / Sociology', '$49–$59', '$392–$472', '$784–$944'],
-                    ['Computer Science / IT', '$59–$79', '$472–$632', '$944–$1,264'],
-                    ['History / Political Science', '$49–$55', '$392–$440', '$784–$880'],
-                    ['Criminal Justice', '$49–$59', '$392–$472', '$784–$944'],
-                  ].map(([subject, weekly, eight, sixteen], i) => (
-                    <tr key={subject} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                      <td className="px-6 py-4 font-medium text-navy-900 text-sm">{subject}</td>
-                      <td className="px-6 py-4 text-center text-gold-600 font-bold text-sm">{weekly}</td>
-                      <td className="px-6 py-4 text-center text-gray-600 text-sm">{eight}</td>
-                      <td className="px-6 py-4 text-center text-gray-600 text-sm">{sixteen}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p className="text-center text-gray-500 text-sm mt-4">All prices include the A or B grade guarantee. Get your exact price in a free quote — no obligation.</p>
+            <p style={{ color: '#888', fontSize: '13px', marginTop: '16px' }}>All transactions encrypted. No payment required until you approve your expert.</p>
           </div>
         </section>
 
-        {/* What affects price */}
-        <section className="py-20 bg-white px-4">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="section-heading">What Affects Your Final Price?</h2>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6">
-              {factors.map(({ icon, label, desc }) => (
-                <div key={label} className="card flex gap-4">
-                  <div className="text-3xl flex-shrink-0">{icon}</div>
-                  <div>
-                    <h3 className="font-bold text-navy-900 mb-2">{label}</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
-                  </div>
+        <section style={{ padding: '60px 24px', background: '#f8f9fa' }}>
+          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <h2 style={{ textAlign: 'center', fontSize: '28px', fontWeight: 800, color: '#1a3a5c', marginBottom: '36px' }}>Pricing by Subject</h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
+              {subjects.map(s => (
+                <div key={s.name} style={{ background: 'white', padding: '20px', borderRadius: '10px', border: '1px solid #e0e0e0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontWeight: 600, color: '#333', fontSize: '15px' }}>{s.name}</span>
+                  <span style={{ color: '#1a3a5c', fontWeight: 700, fontSize: '14px', background: '#e8f0fe', padding: '4px 10px', borderRadius: '6px' }}>{s.modifier}</span>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Compare to competitors */}
-        <section className="py-20 bg-navy-50 px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="section-heading">How We Compare to Other Services</h2>
-            </div>
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
-              <table className="w-full">
-                <thead className="bg-navy-900 text-white">
-                  <tr>
-                    <th className="text-left px-6 py-4 font-bold text-sm">Feature</th>
-                    <th className="text-center px-6 py-4 font-bold text-sm text-gold-400">GradeGuaranteed</th>
-                    <th className="text-center px-6 py-4 font-bold text-sm">BoostMyGrade</th>
-                    <th className="text-center px-6 py-4 font-bold text-sm">TakeYourClass</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100 text-sm">
-                  {[
-                    ['Published pricing', '✅ Yes — $49/week', '❌ Hidden', '❌ Hidden'],
-                    ['Grade guarantee', '✅ A or B + full refund', '⚠️ Partial', '⚠️ Partial'],
-                    ['In-house experts', '✅ 500+ PhD staff', '⚠️ ~150 freelancers', '❌ Freelancers'],
-                    ['US company', '✅ New York, NY', '❌ Offshore', '❌ Offshore'],
-                    ['WhatsApp support', '✅ 24/7', '❌ No', '❌ No'],
-                    ['Response time', '✅ Under 2 hours', '⚠️ 4–8 hours', '⚠️ 4–8 hours'],
-                  ].map(([feature, gg, boost, take], i) => (
-                    <tr key={feature} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                      <td className="px-6 py-4 font-medium text-navy-900">{feature}</td>
-                      <td className="px-6 py-4 text-center text-green-700 font-medium">{gg}</td>
-                      <td className="px-6 py-4 text-center text-gray-500">{boost}</td>
-                      <td className="px-6 py-4 text-center text-gray-500">{take}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+        <section style={{ padding: '60px 24px', background: 'white' }}>
+          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <h2 style={{ textAlign: 'center', fontSize: '28px', fontWeight: 800, color: '#1a3a5c', marginBottom: '36px' }}>À La Carte Options</h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+              {addOns.map(a => (
+                <div key={a.name} style={{ padding: '24px', border: '2px solid #e8e8e8', borderRadius: '12px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
+                    <h3 style={{ fontWeight: 700, color: '#1a3a5c', fontSize: '16px', margin: 0 }}>{a.name}</h3>
+                    <span style={{ color: '#c9a84c', fontWeight: 800, fontSize: '15px', whiteSpace: 'nowrap', marginLeft: '12px' }}>{a.price}</span>
+                  </div>
+                  <p style={{ color: '#666', fontSize: '14px', margin: 0 }}>{a.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        <CTASection
-          headline="Know What It'll Cost Before You Decide"
-          subheadline="Get your personalized quote in under 2 hours. Free, no obligation, no pressure."
-          cta="Get My Free Quote Now"
-        />
+        <section style={{ padding: '60px 24px', background: '#f8f9fa' }}>
+          <div style={{ maxWidth: '720px', margin: '0 auto' }}>
+            <h2 style={{ textAlign: 'center', fontSize: '28px', fontWeight: 800, color: '#1a3a5c', marginBottom: '36px' }}>Pricing FAQs</h2>
+            {[
+              { q: 'Do I pay upfront?', a: 'No. You get a free quote, approve the price, and only pay once you have agreed to proceed.' },
+              { q: 'What if I fail to get an A or B?', a: 'You get a 100% refund. Our guarantee is absolute. In 10+ years of operation, our refund rate is under 2%.' },
+              { q: 'Can I pay in instalments?', a: 'Yes. For classes longer than 8 weeks, we offer a weekly or bi-weekly payment schedule.' },
+              { q: 'What payment methods do you accept?', a: 'All major credit and debit cards (Visa, Mastercard, Amex, Discover), Apple Pay, and PayPal.' },
+              { q: 'Are there any hidden fees?', a: 'None. The price in your quote is the price you pay. No setup fees, no platform fees, no surprises.' },
+            ].map(({ q, a }) => (
+              <details key={q} style={{ marginBottom: '16px', background: 'white', borderRadius: '10px', border: '1px solid #e0e0e0', overflow: 'hidden' }}>
+                <summary style={{ padding: '20px 24px', fontWeight: 700, cursor: 'pointer', color: '#1a3a5c', fontSize: '16px', listStyle: 'none' }}>{q}</summary>
+                <p style={{ padding: '0 24px 20px', color: '#555', lineHeight: 1.7, margin: 0 }}>{a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <CTASection />
       </main>
       <Footer />
     </>

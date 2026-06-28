@@ -183,14 +183,18 @@ export default function SubjectPageTemplate({
         {universities && universities.length > 0 && (
           <section className="py-12 bg-navy-50 px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-xl font-bold text-navy-900 mb-6">Universities We Serve fov {subject}</h2>
+              <h2 className="text-2xl font-bold text-navy-800 mb-6">We serve {subject} for</h2>
               <div className="flex flex-wrap gap-3 justify-center">
                 {universities.map((u) => (
                   <span key={u} className="bg-white text-navy-700 text-sm px-4 py-2 rounded-full border border-gray-200 shadow-sm">
                     {u}
                   </span>
                 ))}
+                <span className="bg-yellow-50 text-yellow-800 text-sm font-semibold px-4 py-2 rounded-full border border-yellow-300">
+                  + 500+ other universities
+                </span>
               </div>
+              <p className="text-navy-500 text-sm mt-4">Don&#39;t see your university? We cover all accredited US universities and community colleges.</p>
             </div>
           </section>
         )}

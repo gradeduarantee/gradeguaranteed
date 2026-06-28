@@ -1,67 +1,100 @@
+import { notFound } from 'next/navigation'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import CTASection from '@/components/CTASection'
-import Link from 'next/link'
-import { notFound } from 'next/navigation'
 
 const posts = {
-  'how-to-pass-online-class-when-behind': {
-    title: "How to Pass Your Online Class When You're Already Behind",
-    date: 'June 15, 2025',
+  'nursing-class-too-hard': {
+    title: 'My Nursing Class Is Too Hard — Here\'s What Actually Works',
+    date: 'June 2025',
     readTime: '7 min read',
-    category: 'Class Recovery',
-    description: "Getting behind in an online class feels like a hole you can't dig out of. Here's a practical recovery plan — including when professional help makes sense.",
+    category: 'Nursing',
+    description: 'Struggling with your online nursing class? You\'re not alone. Here are real strategies that work — and what to do when they don\'t.',
     content: `
-      <p>You missed a week. Then two. Now you have four overdue assignments, a quiz you didn't take, and a midterm coming up that you haven't studied for. The grade portal shows something you don't want to look at.</p>
-
-      <p>This is one of the most common situations online students face — and it's more recoverable than you think, if you act quickly and strategically.</p>
-
-      <h2>Step 1: Do the Math Before You Panic</h2>
-      <p>Before you do anything, calculate what grade you can realistically still achieve. Here's how:</p>
-      <ul>
-        <li>Open your syllabus and find the grade breakdown (assignments = 30%, quizzes = 20%, midterm = 25%, final = 25%, etc.).</li>
-        <li>Note which components you've already failed or missed.</li>
-        <li>Calculate: if you got 100% on every remaining item, what would your final grade be?</li>
-      </ul>
-      <p>If that number is above 80%, you can still get a B. If it's above 70%, you can still pass. Knowing this number tells you what's actually achievable — and prevents you from working hard toward something that's already mathematically impossible.</p>
-
-      <h2>Step 2: Contact Your Professor</h2>
-      <p>This sounds counterintuitive, but professors often have more flexibility than students assume — especially if you're proactive rather than silent. A single email explaining your situation ( health issues, work crisis) can sometimes unlock:</p>
-      <ul>
-        <li>Late submission windows for missed assignments</li>
-        <li>An Incomplete grade giving you time to finish the work next term</li>
-        <li>Extra credit opportunities</li>
-      </ul>
-
-      <h2>Step 3: Triage Remaining Work by Point Value</h2>
-      <p>Not all assignments are equal. If you have limited time and energy, spend it where it counts most.</p>
-
-      <h2>Step 4: Consider Professional Help</h2>
-      <p>If you're significantly behind and overwhelmed, services like GradeGuaranteed.com can take over and ensure you finish strong.</p>
+      <h2>Why Nursing Classes Feel Impossible Online</h2>
+      <p>Online nursing programs are notoriously demanding. Between pharmacology, pathophysiology, clinical documentation, and evidence-based practice papers — the workload is relentless. And unlike a classroom, you don't have professors you can stay after to ask questions.</p>
+      <p>If you're reading this, you're probably hitting a wall. Maybe you're working full-time. Maybe you have kids. Maybe you just underestimated how brutal SNHU or Chamberlain online nursing really is. That's okay — let's talk about what actually helps.</p>
+      
+      <h2>Strategy 1: Triage Your Assignments by Grade Weight</h2>
+      <p>Not all assignments are equal. Before you spend three hours on a discussion post worth 5 points, check your syllabus. Focus energy on proctored exams and major papers that carry 20–30% of your grade. Drop your standards slightly on low-stakes work.</p>
+      
+      <h2>Strategy 2: Use NCLEX Resources for Concept Mastery</h2>
+      <p>Even if your class isn't the NCLEX, NCLEX prep materials (Saunders, UWorld) explain nursing concepts clearly and include the clinical reasoning you need for exams. Many students find these more helpful than their assigned textbooks.</p>
+      
+      <h2>Strategy 3: Form a Virtual Study Group</h2>
+      <p>Facebook groups and Reddit communities for your specific program (r/nursing, SNHU nursing groups) are invaluable. Find classmates in your cohort — you'll often discover someone who already figured out what the professor actually wants.</p>
+      
+      <h2>Strategy 4: Talk to Your Academic Advisor Immediately</h2>
+      <p>If you're already behind, don't wait. Advisors can arrange Incomplete grades, late withdrawals, or connect you with tutoring resources. But they can only help if you reach out before the deadline passes.</p>
+      
+      <h2>When None of That Is Enough</h2>
+      <p>Sometimes the reality is that you're stretched too thin. A job, family obligations, and a demanding nursing program genuinely cannot all run at 100% simultaneously. If you're at risk of failing — which can affect your financial aid, program standing, and career timeline — it may be time to consider getting professional help.</p>
+      <p>At GradeGuaranteed, we have RN-credentialed experts who specialize in online nursing programs including Chamberlain, Walden, SNHU, and WGU. We handle assignments, exams, and discussion posts while you manage the rest of your life. Grade guaranteed.</p>
     `,
   },
-  'take-my-online-class-safe': {
-    title: "Is It Safe to Pay Someone to Take Your Online Class?",
-    date: 'June 8, 2025',
-    readTime: '9 min read',
-    category: 'Safety & Trust',
-    description: "A frank look at the risks and what separates reputable services from scammers.",
+  'snhu-online-class-tips': {
+    title: '7 SNHU Online Class Tips That Actually Help You Pass',
+    date: 'June 2025',
+    readTime: '6 min read',
+    category: 'Online Learning',
+    description: 'Southern New Hampshire University has a unique online format. These tips are specifically tailored to how SNHU structures its courses — and how to stay ahead.',
     content: `
-      <p>Paying someone to take your online class carries some risk — but that risk varies dramatically based on who you use.</p>
-      <h2>6 Signs of a Reputable Service</h2>
-      <p>Published pricing, US business registration, real refund guarantee, in-house experts, fast response, and honesty about limitations.</p>
+      <h2>Understanding How SNHU Online Works</h2>
+      <p>SNHU runs on 8-week accelerated terms, not traditional semesters. That means the pace is nearly double a regular class. Miss one week and you're genuinely behind — not metaphorically, actually behind.</p>
+      
+      <h2>Tip 1: Read the Rubric Before the Assignment, Not After</h2>
+      <p>SNHU professors grade heavily against their rubrics. Before you write a single word, download the rubric and structure your response to hit every criterion. Students who do this routinely score 5–10 points higher on discussions and papers.</p>
+      
+      <h2>Tip 2: Submit Early to Use the Draft Feedback Tool</h2>
+      <p>SNHU's online platform lets professors (and sometimes Smarthinking tutors) leave feedback on drafts. Submit early, get feedback, revise. This alone can turn a B paper into an A.</p>
+      
+      <h2>Tip 3: Treat Discussion Posts Like Mini Essays</h2>
+      <p>SNHU discussion posts are graded for substance, not just participation. Aim for 200–300 words with at least one cited source. Reply to peers with substantive comments, not just "great point!"</p>
+      
+      <h2>Tip 4: Use the SNHU Library, Not Just Google</h2>
+      <p>Your SNHU credentials give you access to EBSCO, ProQuest, and dozens of academic databases. Professors can tell when citations come from Google vs. peer-reviewed journals. Use the library.</p>
+      
+      <h2>Tip 5: Block-Schedule Your Study Time</h2>
+      <p>Because SNHU releases all coursework at the start of the week, it's tempting to procrastinate. Instead, block-schedule specific days for specific tasks: Monday = read module, Tuesday = draft discussion, Thursday = reply to peers, Saturday = work on paper.</p>
+      
+      <h2>Tip 6: Contact Your Professor in Week 1</h2>
+      <p>A brief introduction email in week 1 establishes you as an engaged student. Professors remember students who communicate — and that can make the difference when you need an extension or extra feedback.</p>
+      
+      <h2>Tip 7: Know When to Get Help</h2>
+      <p>SNHU's accelerated format leaves no room for falling behind. If you miss the first week or start drowning in week 3, catching up is genuinely difficult. If you're juggling work and family, consider professional class help to protect your GPA and financial aid standing.</p>
     `,
   },
-  'online-class-help-services-compared': {
-    title: "8 Online Class Help Services Compared (2025)",
-    date: 'June 1, 2025',
-    readTime: '12 min read',
-    category: 'Comparisons',
-    description: "We evaluated 8 major services on price, grade guarantees, expert quality, and transparency.",
+  'wgu-online-class-help': {
+    title: 'WGU Online Class Help — Navigating Competency-Based Education',
+    date: 'June 2025',
+    readTime: '8 min read',
+    category: 'WGU',
+    description: "WGU's competency-based model is unlike any traditional online class. Here's a clear guide to how it works and how to succeed — or get help when you need it.",
     content: `
-      <p>The "take my online class" industry has exploded. We evaluated 8 services on pricing transparency, grade guarantee quality, expert credentials, and company accountability. GradeGuaranteed.com topped the list as the only service that checks all four boxes.</p>
+      <h2>How WGU Actually Works (Most Students Are Confused)</h2>
+      <p>Western Governors University doesn't use traditional grades — you either demonstrate Competency or you don't. There are no letter grades, no GPA in the traditional sense. You progress by passing assessments that prove you've mastered each competency.</p>
+      <p>This model is great for self-directed learners but brutal for anyone who doesn't understand what's expected — or who doesn't have time to study deeply.</p>
+      
+      <h2>Understanding OA vs. PA</h2>
+      <p>WGU has two main assessment types: Performance Assessments (PAs) are written projects you submit for evaluation by WGU's assessment team. Objective Assessments (OAs) are proctored exams. Both require you to demonstrate specific competencies, not just recall facts.</p>
+      
+      <h2>How to Pass Performance Assessments</h2>
+      <p>PAs are graded against a detailed rubric. Read every single rubric row before you start writing. Each row has a "Competent" and "Not Yet Competent" description — write directly to the Competent description for every row. Students who do this pass on first submission significantly more often.</p>
+      
+      <h2>How to Pass Objective Assessments</h2>
+      <p>WGU's OAs are adaptive — they adjust difficulty based on your responses. The passing threshold is typically around 70%, but because the test adapts, you need consistent mastery, not lucky guesses. Use Sophia.org, Study Hall, and WGU's own Course Tips for each subject.</p>
+      
+      <h2>When You Can Retake vs. When You're Stuck</h2>
+      <p>OAs can be retaken after a 3-day waiting period. PAs can be resubmitted after addressing evaluator feedback. However, each resubmission takes time — and if you're close to your term end date, you may run out of time and have to pay for another term.</p>
+      
+      <h2>Getting Help With WGU Classes</h2>
+      <p>WGU's student mentors and course instructors are available but often stretched thin. If you need deep subject-matter help, outside tutoring is often faster. For students who are genuinely overwhelmed — working full-time, dealing with family situations, or struggling with a specific program — professional class help services like GradeGuaranteed have WGU-certified experts who understand exactly how the competency system works and can handle PAs and OAs on your behalf.</p>
     `,
   },
+}
+
+export function generateStaticParams() {
+  return Object.keys(posts).map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({ params }) {
@@ -70,57 +103,32 @@ export async function generateMetadata({ params }) {
   return {
     title: post.title,
     description: post.description,
-    alternates: { canonical: `https://gradeguaranteed.com/blog/${params.slug}` },
   }
-}
-
-export async function generateStaticParams() {
-  return Object.keys(posts).map((slug) => ({ slug }))
 }
 
 export default function BlogPost({ params }) {
   const post = posts[params.slug]
   if (!post) notFound()
 
-  const articleSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: post.title,
-    description: post.description,
-    author: { '@type': 'Organization', name: 'GradeGuaranteed.com' },
-  }
-
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <Header />
       <main>
-        <section className="bg-hero-gradient py-16 px-4">
-          <div className="max-w-3xl mx-auto">
-            <div className="flex items-center gap-3 mb-5">
-              <span className="bg-gold-500/20 text-gold-400 text-xs font-bold px-3 py-1.5 rounded-full border border-gold-500/30">{post.category}</span>
-              <span className="text-blue-300 text-sm">{post.date} • {post.readTime}</span>
-            </div>
-            <h1 className="text-3xl md:text-4xl font-extrabold text-white leading-tight">{post.title}</h1>
+        <article style={{ maxWidth: '800px', margin: '0 auto', padding: '60px 24px' }}>
+          <div style={{ marginBottom: '24px' }}>
+            <span style={{ background: '#e8f0fe', color: '#1a3a5c', padding: '4px 12px', borderRadius: '20px', fontSize: '13px', fontWeight: 600 }}>{post.category}</span>
           </div>
-        </section>
-        <section className="py-16 bg-white px-4">
-          <div className="max-w-3xl mx-auto">
-            <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: post.content }} />
-            <div className="mt-12">
-              <h3 className="font-bold text-navy-900 text-xl mb-6">More From Our Blog</h3>
-              <div className="grid md:grid-cols-2 gap-4">
-                {Object.entries(posts).filter(([s]) => s !== params.slug).slice(0, 2).map(([slug, p]) => (
-                  <Link key={slug} href={`/blog/${slug}`} className="card border border-gray-100 hover:border-gold-300 transition-all">
-                    <span className="text-xs font-bold text-gold-600 uppercase">{p.category}</span>
-                    <h4 className="font-bold text-navy-900 mt-2 mb-2">{p.title}</h4>
-                    <span className="text-gold-500 text-sm font-medium">Read article →</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
+          <h1 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 900, color: '#1a3a5c', marginBottom: '16px', lineHeight: 1.2 }}>{post.title}</h1>
+          <div style={{ display: 'flex', gap: '16px', color: '#888', fontSize: '14px', marginBottom: '40px' }}>
+            <span>{post.date}</span>
+            <span>·</span>
+            <span>{post.readTime}</span>
           </div>
-        </section>
+          <div
+            style={{ lineHeight: 1.8, color: '#333', fontSize: '17px' }}
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
+        </article>
         <CTASection />
       </main>
       <Footer />
