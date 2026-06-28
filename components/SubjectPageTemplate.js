@@ -59,8 +59,11 @@ export default function SubjectPageTemplate({
               <div className="bg-white rounded-2xl shadow-2xl p-7 border border-gray-100">
                 <h2 className="text-xl font-bold text-navy-900 mb-1">Get a Free Quote — 2 Hours</h2>
                 <p className="text-gray-500 text-sm mb-5">Tell us about your {subject} class.</p>
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" className="space-y-4">
-                  <input type="hidden" name="subject" value={subject} />
+                <form action="https://formsubmit.co/icarus.dtd@hotmail.com" method="POST" className="space-y-4">
+                  <input type="hidden" name="_subject" value="New Quote Request — GradeGuaranteed" />
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_next" value="https://gradeguaranteed.com/thank-you" />
+                  <input type="hidden" name="class_subject" value={subject} />
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
                     <input type="text" name="name" required placeholder="Your first name"
@@ -69,6 +72,11 @@ export default function SubjectPageTemplate({
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
                     <input type="email" name="email" required placeholder="your@email.com"
+                      className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-navy-500" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Phone (optional)</label>
+                    <input type="tel" name="phone" placeholder="Your phone number"
                       className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-navy-500" />
                   </div>
                   <div>

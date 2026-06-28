@@ -38,11 +38,11 @@ const tiers = [
       'Total: up to $392 for 8-week class',
     ],
     cta: 'Get a Quote',
-    note: 'Most popular for 4–8 week courses',
+    note: 'Most popular for 4-8 week courses',
   },
   {
     label: 'Standard Class',
-    sublabel: '9–12 weeks',
+    sublabel: '9-12 weeks',
     price: '$40',
     unit: 'per week',
     highlight: true,
@@ -51,14 +51,14 @@ const tiers = [
       'All exams and midterms',
       'Dedicated PhD-level expert',
       'A or B guaranteed or full refund',
-      'Total: $360–$480 for 9–12 week class',
+      'Total: $360-$480 for 9-12 week class',
     ],
     cta: 'Get a Quote',
     note: 'Best value for full-semester classes',
   },
   {
     label: 'Full Semester',
-    sublabel: '13–16 weeks',
+    sublabel: '13-16 weeks',
     price: '$37',
     unit: 'per week',
     highlight: false,
@@ -67,7 +67,7 @@ const tiers = [
       'All exams and midterms',
       'Dedicated PhD-level expert',
       'A or B guaranteed or full refund',
-      'Total: $481–$592 for 13–16 week class',
+      'Total: $481-$592 for 13-16 week class',
     ],
     cta: 'Get a Quote',
     note: 'Lowest per-week rate for long classes',
@@ -81,20 +81,12 @@ const addOns = [
   { name: 'Discussion Posts Only', price: 'From $15/post', desc: 'Weekly discussion posts and peer responses' },
 ]
 
-const subjects = [
-  { name: 'Nursing & Healthcare', modifier: '+$10–20/wk' },
-  { name: 'Engineering / Coding', modifier: '+$10–20/wk' },
-  { name: 'General Humanities', modifier: 'Standard rate' },
-  { name: 'Business / Accounting', modifier: 'Standard rate' },
-  { name: 'Math / Statistics', modifier: '+$5–15/wk' },
-  { name: 'Science (Biology, Chem)', modifier: '+$10–20/wk' },
-]
-
 export default function PricingPage() {
   return (
     <>
       <Header />
       <main>
+        {/* Hero */}
         <section style={{ background: 'linear-gradient(135deg, #1a3a5c 0%, #0d2340 100%)', color: 'white', padding: '80px 24px 60px', textAlign: 'center' }}>
           <p style={{ color: '#c9a84c', fontWeight: 700, letterSpacing: '2px', fontSize: '13px', textTransform: 'uppercase', marginBottom: '16px' }}>Transparent Pricing</p>
           <h1 style={{ fontSize: 'clamp(32px, 5vw, 52px)', fontWeight: 800, marginBottom: '20px', lineHeight: 1.2 }}>
@@ -110,6 +102,7 @@ export default function PricingPage() {
           </div>
         </section>
 
+        {/* Tiers */}
         <section style={{ padding: '80px 24px', background: '#f8f9fa' }}>
           <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
             <h2 style={{ textAlign: 'center', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 800, color: '#1a3a5c', marginBottom: '12px' }}>Choose Your Plan</h2>
@@ -140,7 +133,7 @@ export default function PricingPage() {
                   <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 28px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                     {tier.features.map((f) => (
                       <li key={f} style={{ fontSize: '14px', display: 'flex', gap: '8px', alignItems: 'flex-start', opacity: 0.9 }}>
-                        <span style={{ color: '#c9a84c', fontWeight: 700, marginTop: '1px' }}>✓</span>
+                        <span style={{ color: '#c9a84c', fontWeight: 700, marginTop: '1px' }}>checkmark</span>
                         {f}
                       </li>
                     ))}
@@ -158,11 +151,12 @@ export default function PricingPage() {
           </div>
         </section>
 
+        {/* Payment Methods */}
         <section style={{ padding: '40px 24px', background: 'white', borderTop: '1px solid #eee', borderBottom: '1px solid #eee' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
             <p style={{ color: '#666', fontSize: '15px', marginBottom: '16px' }}>We accept all major payment methods</p>
             <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
-              {['💳 Visa & Mastercard', '🍎 Apple Pay', '🅿️ PayPal', '💳 American Express'].map(m => (
+              {['Visa and Mastercard', 'Apple Pay', 'PayPal', 'American Express'].map(m => (
                 <span key={m} style={{ background: '#f5f5f5', padding: '8px 16px', borderRadius: '8px', fontSize: '14px', fontWeight: 600, color: '#333' }}>{m}</span>
               ))}
             </div>
@@ -170,26 +164,14 @@ export default function PricingPage() {
           </div>
         </section>
 
+        {/* Add-Ons */}
         <section style={{ padding: '60px 24px', background: '#f8f9fa' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <h2 style={{ textAlign: 'center', fontSize: '28px', fontWeight: 800, color: '#1a3a5c', marginBottom: '36px' }}>Pricing by Subject</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
-              {subjects.map(s => (
-                <div key={s.name} style={{ background: 'white', padding: '20px', borderRadius: '10px', border: '1px solid #e0e0e0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ fontWeight: 600, color: '#333', fontSize: '15px' }}>{s.name}</span>
-                  <span style={{ color: '#1a3a5c', fontWeight: 700, fontSize: '14px', background: '#e8f0fe', padding: '4px 10px', borderRadius: '6px' }}>{s.modifier}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section style={{ padding: '60px 24px', background: 'white' }}>
-          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <h2 style={{ textAlign: 'center', fontSize: '28px', fontWeight: 800, color: '#1a3a5c', marginBottom: '36px' }}>À La Carte Options</h2>
+            <h2 style={{ textAlign: 'center', fontSize: '28px', fontWeight: 800, color: '#1a3a5c', marginBottom: '12px' }}>A La Carte Options</h2>
+            <p style={{ textAlign: 'center', color: '#666', marginBottom: '32px' }}>Need just one thing handled? These standalone options have you covered.</p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
               {addOns.map(a => (
-                <div key={a.name} style={{ padding: '24px', border: '2px solid #e8e8e8', borderRadius: '12px' }}>
+                <div key={a.name} style={{ padding: '24px', border: '2px solid #e8e8e8', borderRadius: '12px', background: 'white' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
                     <h3 style={{ fontWeight: 700, color: '#1a3a5c', fontSize: '16px', margin: 0 }}>{a.name}</h3>
                     <span style={{ color: '#c9a84c', fontWeight: 800, fontSize: '15px', whiteSpace: 'nowrap', marginLeft: '12px' }}>{a.price}</span>
@@ -201,17 +183,18 @@ export default function PricingPage() {
           </div>
         </section>
 
-        <section style={{ padding: '60px 24px', background: '#f8f9fa' }}>
+        {/* FAQs */}
+        <section style={{ padding: '60px 24px', background: 'white' }}>
           <div style={{ maxWidth: '720px', margin: '0 auto' }}>
             <h2 style={{ textAlign: 'center', fontSize: '28px', fontWeight: 800, color: '#1a3a5c', marginBottom: '36px' }}>Pricing FAQs</h2>
             {[
-              { q: 'Do I pay upfront?', a: 'No. You get a free quote, approve the price, and only pay once you have agreed to proceed.' },
+              { q: 'Do I pay upfront?', a: 'No. You get a free quote, approve the price, and only pay once you have agreed to proceed. We never charge without your approval.' },
               { q: 'What if I fail to get an A or B?', a: 'You get a 100% refund. Our guarantee is absolute. In 10+ years of operation, our refund rate is under 2%.' },
-              { q: 'Can I pay in instalments?', a: 'Yes. For classes longer than 8 weeks, we offer a weekly or bi-weekly payment schedule.' },
+              { q: 'Can I pay in instalments?', a: 'Yes. For classes longer than 8 weeks we offer a weekly or bi-weekly payment schedule. Ask about this when you get your quote.' },
               { q: 'What payment methods do you accept?', a: 'All major credit and debit cards (Visa, Mastercard, Amex, Discover), Apple Pay, and PayPal.' },
               { q: 'Are there any hidden fees?', a: 'None. The price in your quote is the price you pay. No setup fees, no platform fees, no surprises.' },
             ].map(({ q, a }) => (
-              <details key={q} style={{ marginBottom: '16px', background: 'white', borderRadius: '10px', border: '1px solid #e0e0e0', overflow: 'hidden' }}>
+              <details key={q} style={{ marginBottom: '16px', background: '#f8f9fa', borderRadius: '10px', border: '1px solid #e0e0e0', overflow: 'hidden' }}>
                 <summary style={{ padding: '20px 24px', fontWeight: 700, cursor: 'pointer', color: '#1a3a5c', fontSize: '16px', listStyle: 'none' }}>{q}</summary>
                 <p style={{ padding: '0 24px 20px', color: '#555', lineHeight: 1.7, margin: 0 }}>{a}</p>
               </details>

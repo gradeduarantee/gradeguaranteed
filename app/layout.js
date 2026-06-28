@@ -34,6 +34,23 @@ export default function RootLayout({ children }) {
       <body>
         {children}
 
+        {/* Tawk.to Live Chat Script */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+              (function(){
+                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                s1.async=true;
+                s1.src='https://embed.tawk.to/TAWK_PROPERTY_ID/TAWK_WIDGET_ID';
+                s1.charset='UTF-8';
+                s1.setAttribute('crossorigin','*');
+                s0.parentNode.insertBefore(s1,s0);
+              })();
+            `,
+          }}
+        />
+
         {/* Floating Chat Buttons */}
         <div style={{
           position: 'fixed',
@@ -44,6 +61,7 @@ export default function RootLayout({ children }) {
           gap: '12px',
           zIndex: 9999,
         }}>
+          {/* WhatsApp Button */}
           <a
             href="https://wa.me/15551234567?text=Hi%2C%20I%20need%20help%20with%20my%20online%20class"
             target="_blank"
@@ -69,9 +87,10 @@ export default function RootLayout({ children }) {
             WhatsApp Us
           </a>
 
-          <a
-            href="mailto:support@gradeguaranteed.com?subject=Online%20Class%20Help%20Request"
-            title="Email Us"
+          {/* Live Chat Button */}
+          <button
+            onClick={() => { if (typeof Tawk_API !== 'undefined') Tawk_API.toggle(); }}
+            title="Live Chat"
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -80,18 +99,18 @@ export default function RootLayout({ children }) {
               color: 'white',
               padding: '12px 20px',
               borderRadius: '50px',
-              textDecoration: 'none',
+              border: 'none',
+              cursor: 'pointer',
               fontWeight: 700,
               fontSize: '14px',
               boxShadow: '0 4px 20px rgba(26,58,92,0.3)',
             }}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
             </svg>
-            Email Us
-          </a>
+            Live Chat
+          </button>
         </div>
       </body>
     </html>
