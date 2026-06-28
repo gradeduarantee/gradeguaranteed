@@ -43,8 +43,8 @@ export default function FailingMyOnlineClass() {
         <section className="py-20 bg-white px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-14">
-              <h2 className="section-heading">Whatever Your Situation — We've Seen It Before</h2>
-              <p className="section-subheading max-w-2xl mx-auto">Tell us where you are. We'll be honest about what's achievable.</p>
+              <h2 className="section-heading">Whatever Your Situation — We\'ve Seen It Before</h2>
+              <p className="section-subheading max-w-2xl mx-auto">Tell us where you are. We\'ll be honest about what\'s achievable.</p>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
               {[
@@ -101,10 +101,10 @@ export default function FailingMyOnlineClass() {
         {/* Honest section */}
         <section className="py-16 bg-amber-50 border-y border-amber-200 px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <span className="text-amber-600 font-bold text-sm uppercase tracking-wider">We'll Be Straight With You</span>
-            <h2 className="text-3xl font-extrabold text-navy-900 mt-3 mb-5">We Won't Take Your Money If We Can't Help</h2>
+            <span className="text-amber-600 font-bold text-sm uppercase tracking-wider">We\'ll Be Straight With You</span>
+            <h2 className="text-3xl font-extrabold text-navy-900 mt-3 mb-5">We Won\'t Take Your Money If We Can\'t Help</h2>
             <p className="text-gray-600 leading-relaxed text-lg mb-6">
-              Some situations are too far gone for a grade guarantee. If your final grade is mathematically unrecoverable, we'll tell you that upfront — before you pay anything. We'd rather lose a sale than take money we can't earn.
+              Some situations are too far gone for a grade guarantee. If your final grade is mathematically unrecoverable, we\'ll tell you that upfront — before you pay anything. We\'d rather lose a sale than take money we can\'t earn.
             </p>
             <p className="text-gray-600 leading-relaxed">
               In those cases, we can still take over the class and do our absolute best — just without the formal guarantee. Many students still benefit significantly from having an expert handle remaining coursework, even in difficult situations.
@@ -138,8 +138,8 @@ export default function FailingMyOnlineClass() {
         {/* Final CTA */}
         <section className="bg-hero-gradient py-20 px-4 text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl font-extrabold text-white mb-4">Don't Wait — Every Day Matters</h2>
-            <p className="text-blue-200 text-lg mb-8 max-w-2xl mx-auto">The sooner you contact us, the more we can do. Get help now — even if you think it's too late.</p>
+            <h2 className="text-4xl font-extrabold text-white mb-4">Don\'t Wait — Every Day Matters</h2>
+            <p className="text-blue-200 text-lg mb-8 max-w-2xl mx-auto">The sooner you contact us, the more we can do. Get help now — even if you think it\'s too late.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/get-a-quote" className="btn-gold text-lg px-10 py-4 rounded-xl">Get Emergency Help →</Link>
               <a href="https://wa.me/17633299406" target="_blank" rel="noopener noreferrer"

@@ -99,8 +99,8 @@ export default function TakeMyProctoredExam() {
         <section className="py-16 bg-navy-50 px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-10">
-              <h2 className="section-heading">Proctoring Platforms We've Worked With</h2>
-              <p className="text-gray-500 mt-2">Contact us with your specific platform — we'll advise on what support is possible.</p>
+              <h2 className="section-heading">Proctoring Platforms We\'ve Worked With</h2>
+              <p className="text-gray-500 mt-2">Contact us with your specific platform — we\'ll advise on what support is possible.</p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {[
@@ -122,10 +122,10 @@ export default function TakeMyProctoredExam() {
             <span className="text-amber-600 font-bold text-sm uppercase tracking-wider">Important</span>
             <h2 className="text-2xl font-extrabold text-navy-900 mt-3 mb-5">Why We Always Assess First</h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              Proctored exams are not one-size-fits-all. A class using basic LockDown Browser is very different from one using AI-powered webcam monitoring with eye tracking. We assess your specific situation honestly and recommend only what's feasible.
+              Proctored exams are not one-size-fits-all. A class using basic LockDown Browser is very different from one using AI-powered webcam monitoring with eye tracking. We assess your specific situation honestly and recommend only what\'s feasible.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              We never take payment for proctored exam help if we don't believe we can deliver value. Our reputation depends on honesty — not overpromising.
+              We never take payment for proctored exam help if we don\'t believe we can deliver value. Our reputation depends on honesty — not overpromising.
             </p>
             <div className="mt-8">
               <a href="https://wa.me/17633299406" target="_blank" rel="noopener noreferrer"
