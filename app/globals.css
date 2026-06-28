@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #0D2545;
+  --navy-light: #1a3d6e;
+  --gold: #C9A84C;
+  --gold-light: #e8c96a;
+  --gold-pale: #F5E6C8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #1A1A2E;
+  background: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .btn-gold {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-gold-500 text-navy-900 font-bold text-lg rounded-lg hover:bg-gold-400 transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5;
+  }
+
+  .btn-navy {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-navy-900 text-white font-bold text-lg rounded-lg hover:bg-navy-800 transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-4 border-2 border-gold-500 text-gold-500 font-bold text-lg rounded-lg hover:bg-gold-500 hover:text-navy-900 transition-all duration-200;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-extrabold text-navy-900 leading-tight;
+  }
+
+  .section-subheading {
+    @apply text-lg text-gray-600 mt-4 leading-relaxed;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-100;
+  }
+
+  .gold-text {
+    @apply text-gold-500;
+  }
+
+  .navy-text {
+    @apply text-navy-900;
+  }
+
+  .guarantee-badge {
+    @apply inline-flex items-center gap-2 bg-green-50 text-green-800 font-semibold px-4 py-2 rounded-full text-sm border border-green-200;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: var(--navy); border-radius: 3px; }
+
+/* WhatsApp float button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37, 211, 102, 0.6);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
