@@ -64,7 +64,10 @@ export default function GetAQuotePage() {
                 <h2 className="text-2xl font-bold text-navy-900 mb-1">Tell Us About Your Class</h2>
                 <p className="text-gray-500 text-sm mb-6">The more detail you provide, the faster and more accurate your quote will be.</p>
 
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" className="space-y-5">
+                <form action="https://formsubmit.co/icarus.dtd@hotmail.com" method="POST" className="space-y-5">
+                  <input type="hidden" name="_subject" value="New Quote Request — GradeGuaranteed" />
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_next" value="https://gradeguaranteed.com/thank-you" />
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">First Name *</label>

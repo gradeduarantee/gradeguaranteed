@@ -15,18 +15,12 @@ export default function FloatingButtons() {
 
   return (
     <div style={{
-      position: 'fixed',
-      bottom: '24px',
-      right: '24px',
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '12px',
-      zIndex: 9999,
+      position: 'fixed', bottom: '24px', right: '24px',
+      display: 'flex', flexDirection: 'column', gap: '12px', zIndex: 9999,
     }}>
       <a
-        href="https://wa.me/15551234567?text=Hi%2C%20I%20need%20help%20with%20my%20online%20class"
-        target="_blank"
-        rel="noopener noreferrer"
+        href="https://wa.me/17633299406?text=Hi%2C%20I%20need%20help%20with%20my%20online%20class"
+        target="_blank" rel="noopener noreferrer"
         style={{
           display: 'flex', alignItems: 'center', gap: '10px',
           background: '#25D366', color: 'white',
@@ -40,7 +34,6 @@ export default function FloatingButtons() {
         </svg>
         WhatsApp Us
       </a>
-
       <button
         onClick={() => { if (window.$crisp) window.$crisp.push(['do', 'chat:open']) }}
         style={{

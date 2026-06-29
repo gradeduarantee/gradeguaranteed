@@ -76,7 +76,7 @@ export default function HomePage() {
                 <Link href="/get-a-quote" style={{ background: '#c9a84c', color: 'white', padding: '16px 32px', borderRadius: '8px', fontWeight: 800, textDecoration: 'none', fontSize: '16px' }}>
                   Get My Free Quote →
                 </Link>
-                <a href="https://wa.me/15551234567" target="_blank" rel="noopener noreferrer" style={{ background: '#25D366', color: 'white', padding: '16px 24px', borderRadius: '8px', fontWeight: 700, textDecoration: 'none', fontSize: '15px' }}>
+                <a href="https://wa.me/17633299406" target="_blank" rel="noopener noreferrer" style={{ background: '#25D366', color: 'white', padding: '16px 24px', borderRadius: '8px', fontWeight: 700, textDecoration: 'none', fontSize: '15px' }}>
                   💬 WhatsApp Now
                 </a>
               </div>
@@ -95,10 +95,10 @@ export default function HomePage() {
                 <input type="hidden" name="_subject" value="New Quote Request — GradeGuaranteed" />
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_next" value="https://gradeguaranteed.com/thank-you" />
-                <input type="text" name="name" placeholder="Your Name" required style={{ padding: '13px 16px', borderRadius: '8px', border: '2px solid #e0e0e0', fontSize: '15px' }} />
-                <input type="email" name="email" placeholder="Email Address" required style={{ padding: '13px 16px', borderRadius: '8px', border: '2px solid #e0e0e0', fontSize: '15px' }} />
-                <input type="tel" name="phone" placeholder="Phone Number (optional)" style={{ padding: '13px 16px', borderRadius: '8px', border: '2px solid #e0e0e0', fontSize: '15px' }} />
-                <input type="text" name="subject" placeholder="Subject (e.g. Nursing, Math)" style={{ padding: '13px 16px', borderRadius: '8px', border: '2px solid #e0e0e0', fontSize: '15px' }} />
+                <input type="text" name="name" placeholder="Your Name" required style={{ padding: '13px 16px', borderRadius: '8px', border: '2px solid #e0e0e0', fontSize: '15px', color: '#333', background: 'white' }} />
+                <input type="email" name="email" placeholder="Email Address" required style={{ padding: '13px 16px', borderRadius: '8px', border: '2px solid #e0e0e0', fontSize: '15px', color: '#333', background: 'white' }} />
+                <input type="tel" name="phone" placeholder="Phone Number (optional)" style={{ padding: '13px 16px', borderRadius: '8px', border: '2px solid #e0e0e0', fontSize: '15px', color: '#333', background: 'white' }} />
+                <input type="text" name="subject" placeholder="Subject (e.g. Nursing, Math)" style={{ padding: '13px 16px', borderRadius: '8px', border: '2px solid #e0e0e0', fontSize: '15px', color: '#333', background: 'white' }} />
                 <button type="submit" style={{ background: '#1a3a5c', color: 'white', padding: '15px', borderRadius: '8px', fontWeight: 800, fontSize: '16px', border: 'none', cursor: 'pointer' }}>
                   Get My Free Quote →
                 </button>
@@ -199,7 +199,7 @@ export default function HomePage() {
             <Link href="/get-a-quote" style={{ background: '#c9a84c', color: 'white', padding: '18px 40px', borderRadius: '8px', fontWeight: 800, textDecoration: 'none', fontSize: '17px' }}>
               Get My Grade Guaranteed Today →
             </Link>
-            <a href="https://wa.me/15551234567" target="_blank" rel="noopener noreferrer" style={{ background: '#25D366', color: 'white', padding: '18px 32px', borderRadius: '8px', fontWeight: 700, textDecoration: 'none', fontSize: '16px' }}>
+            <a href="https://wa.me/17633299406" target="_blank" rel="noopener noreferrer" style={{ background: '#25D366', color: 'white', padding: '18px 32px', borderRadius: '8px', fontWeight: 700, textDecoration: 'none', fontSize: '16px' }}>
               💬 Chat on WhatsApp
             </a>
           </div>
