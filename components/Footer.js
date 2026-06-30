@@ -23,6 +23,7 @@ const services = [
   ['Reviews', '/reviews'],
   ['FAQ', '/faq'],
   ['Blog', '/blog'],
+  ['About Us', '/about'],
 ]
 
 export default function Footer() {
@@ -45,7 +46,7 @@ export default function Footer() {
                 </svg>
               ))}
               <span className="text-gold-500 font-bold text-sm ml-1">4.9/5</span>
-              <span className="text-gray-500 text-sm ml-1">• 10,000+ students</span>
+              <span className="text-gray-500 text-sm ml-1">�� 10,000+ students</span>
             </div>
           </div>
 
@@ -112,7 +113,7 @@ export default function Footer() {
             {/* Guarantee badge */}
             <div className="mt-6 bg-navy-900 rounded-xl p-4 border border-gold-500/30">
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-2xl">🏆</span>
+                <span className="text-2xl">���</span>
                 <span className="text-gold-500 font-bold text-sm">The Grade Promise</span>
               </div>
               <p className="text-gray-400 text-xs leading-relaxed">A or B guaranteed on every class — or we refund 100% of what you paid. No questions asked.</p>
@@ -129,6 +130,10 @@ export default function Footer() {
             <Link href="/grade-guarantee" className="hover:text-gold-400 transition-colors">Grade Guarantee</Link>
             <Link href="/pricing" className="hover:text-gold-400 transition-colors">Pricing</Link>
             <Link href="/faq" className="hover:text-gold-400 transition-colors">FAQ</Link>
+            <Link href="/about" className="hover:text-gold-400 transition-colors">About</Link>
+            <Link href="/terms-of-service" className="hover:text-gold-400 transition-colors">Terms</Link>
+            <Link href="/privacy-policy" className="hover:text-gold-400 transition-colors">Privacy</Link>
+            <Link href="/refund-policy" className="hover:text-gold-400 transition-colors">Refund Policy</Link>
           </div>
         </div>
       </div>
